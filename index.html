@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arun Kumar M | Computer Science Student Portfolio</title>
+  <meta name="description" content="Portfolio of Arun Kumar M, a B.Tech Computer Science and Information Technology student at REVA University interested in Data Analytics, Business Analytics, and Consulting.">
+  <meta name="theme-color" content="#0c0e1b">
+  <meta property="og:title" content="Arun Kumar M | Computer Science Student Portfolio">
+  <meta property="og:description" content="B.Tech CSIT student at REVA University interested in Data Analytics, Business Analytics, and Consulting.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230c0e1b'/><text x='50' y='67' font-size='52' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%237aa7ff'>AK</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0c0e1b;
+      --bg-soft: #11142a;
+      --surface: #161a34;
+      --surface-2: #1c2142;
+      --line: #262c52;
+      --text: #e8eaf7;
+      --muted: #a0a7c8;
+      --blue: #7aa7ff;
+      --violet: #a68bff;
+      --grad: linear-gradient(120deg, #7aa7ff 0%, #a68bff 100%);
+      --radius: 14px;
+      --font-head: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif;
+      --font-body: "DM Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(700px 420px at 85% -5%, rgba(166,139,255,.16), transparent 70%),
+        radial-gradient(640px 400px at 5% 8%, rgba(122,167,255,.13), transparent 70%);
+      pointer-events: none;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: #a9c6ff; }
+    :focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 6px; }
+
+    .wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+    h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; margin: 0; letter-spacing: -0.01em; }
+    p { margin: 0 0 1rem; }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(12,14,27,.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 64px; }
+    .brand { font-family: var(--font-head); font-weight: 600; color: var(--text); font-size: 1rem; white-space: nowrap; }
+    .brand:hover { color: var(--text); }
+    .nav ul { display: flex; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
+    .nav ul a { color: var(--muted); font-size: .95rem; font-weight: 500; padding: .4rem 0; border-bottom: 2px solid transparent; }
+    .nav ul a:hover { color: var(--text); border-bottom-color: var(--violet); }
+
+    /* Hero */
+    .hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem); }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .hero h1 { font-size: clamp(2.5rem, 6.5vw, 4.4rem); font-weight: 700; margin-bottom: 1.1rem; }
+    .hero .role {
+      font-family: var(--font-head);
+      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+      font-weight: 500;
+      color: var(--blue);
+      margin-bottom: 1.2rem;
+    }
+    .hero .lead { color: var(--muted); max-width: 34rem; font-size: 1.12rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .55rem;
+      padding: .75rem 1.3rem; border-radius: 10px;
+      font-weight: 600; font-size: .98rem; font-family: var(--font-body);
+      border: 1px solid transparent; cursor: pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn-primary { background: var(--grad); color: #0c0e1b; }
+    .btn-primary:hover { color: #0c0e1b; transform: translateY(-2px); }
+    .btn-ghost { background: transparent; border-color: var(--line); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--violet); color: var(--text); background: rgba(166,139,255,.08); }
+    .btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .profile-card {
+      background: linear-gradient(180deg, var(--surface) 0%, var(--bg-soft) 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.6rem 1.6rem 1.3rem;
+      box-shadow: 0 0 0 1px rgba(166,139,255,.05), 0 24px 60px -30px rgba(122,167,255,.35);
+    }
+    .profile-card h2 { font-size: 1rem; color: var(--muted); font-weight: 500; margin-bottom: 1rem; }
+    .fact { padding: .85rem 0; border-top: 1px solid var(--line); }
+    .fact:first-of-type { border-top: 0; padding-top: 0; }
+    .fact dt { font-size: .85rem; color: var(--muted); margin-bottom: .1rem; }
+    .fact dd { margin: 0; font-weight: 500; line-height: 1.45; }
+    .profile-card dl { margin: 0; }
+
+    /* Sections */
+    section.block { padding: clamp(3rem, 7vw, 5rem) 0; border-top: 1px solid var(--line); }
+    .section-head { margin-bottom: 2.2rem; max-width: 40rem; }
+    .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: .6rem; }
+    .section-head p { color: var(--muted); margin: 0; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(2rem, 5vw, 4rem); }
+    .about-grid p { color: #cfd3ea; max-width: 38rem; }
+    .learning {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      align-self: start;
+    }
+    .learning h3 { font-size: 1.05rem; margin-bottom: .4rem; }
+    .learning > p { color: var(--muted); font-size: .96rem; margin-bottom: 1rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+    .chip {
+      font-size: .9rem; font-weight: 500;
+      padding: .35rem .8rem;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+    .project {
+      display: flex; flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .project:hover { border-color: var(--violet); transform: translateY(-3px); }
+    .project-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.1rem; }
+    .repo-icon { width: 22px; height: 22px; fill: var(--blue); }
+    .tag {
+      font-size: .8rem; font-weight: 600;
+      padding: .2rem .65rem; border-radius: 6px;
+      background: rgba(122,167,255,.12); color: var(--blue);
+      border: 1px solid rgba(122,167,255,.25);
+    }
+    .tag.violet { background: rgba(166,139,255,.12); color: var(--violet); border-color: rgba(166,139,255,.28); }
+    .project h3 { font-size: 1.2rem; margin-bottom: .6rem; }
+    .project p { color: var(--muted); font-size: .98rem; flex: 1; }
+    .project-link { font-weight: 600; font-size: .96rem; display: inline-flex; align-items: center; gap: .4rem; margin-top: .4rem; }
+    .project-link span { transition: transform .15s ease; display: inline-block; }
+    .project-link:hover span { transform: translateX(3px); }
+    .more { margin-top: 1.8rem; color: var(--muted); }
+
+    /* Skills */
+    .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+    .skill-group { border-left: 2px solid var(--violet); padding: .2rem 0 .2rem 1.3rem; }
+    .skill-group:nth-child(2) { border-left-color: var(--blue); }
+    .skill-group h3 { font-size: 1.05rem; margin-bottom: .9rem; }
+    .skill-note { margin-top: 2rem; color: var(--muted); max-width: 40rem; }
+
+    /* Career goal */
+    .goal-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    .goal-quote {
+      font-family: var(--font-head);
+      font-size: clamp(1.3rem, 2.8vw, 1.75rem);
+      line-height: 1.4;
+      font-weight: 500;
+      margin: 0;
+      padding-left: 1.4rem;
+      border-left: 3px solid transparent;
+      border-image: linear-gradient(180deg, #7aa7ff, #a68bff) 1;
+    }
+    .goal-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+    .goal-list li {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.3rem;
+      color: #cfd3ea;
+    }
+    .goal-list strong { display: block; color: var(--text); font-family: var(--font-head); font-weight: 600; font-size: 1rem; margin-bottom: .2rem; }
+
+    /* Contact */
+    .contact-card {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: clamp(1.8rem, 5vw, 3rem);
+      display: flex; flex-wrap: wrap; gap: 1.6rem; align-items: center; justify-content: space-between;
+    }
+    .contact-card h2 { font-size: clamp(1.6rem, 3.6vw, 2.1rem); margin-bottom: .5rem; }
+    .contact-card p { color: var(--muted); margin: 0; max-width: 32rem; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--line); padding: 1.8rem 0 2.4rem; color: var(--muted); font-size: .92rem; }
+    .foot { display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; justify-content: space-between; }
+
+    /* Single page-load reveal */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-grid > * { animation: rise .7s ease both; }
+      .hero-grid > *:nth-child(2) { animation-delay: .12s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+
+    /* Responsive */
+    @media (max-width: 920px) {
+      .hero-grid, .about-grid, .goal-grid { grid-template-columns: 1fr; }
+      .projects, .skill-groups { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 1rem; }
+      .nav { height: auto; padding: .7rem 0; flex-direction: column; align-items: flex-start; gap: .3rem; }
+      .nav ul { gap: 1.1rem; flex-wrap: wrap; }
+      html { scroll-padding-top: 110px; }
+      .actions .btn { flex: 1 1 100%; justify-content: center; }
+      .contact-card .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top">Arun Kumar M</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#goal">Career Goal</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Arun Kumar M</h1>
+          <p class="role">Computer Science student building a foundation in data and business analytics</p>
+          <p class="lead">I'm a 3rd-semester B.Tech student at REVA University. I like breaking problems into steps, understanding the logic behind the code, and learning how data can help solve real problems.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">View my projects</a>
+            <a class="btn btn-ghost" href="https://github.com/arun2307-pixel" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub profile
+            </a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Quick facts">
+          <h2>At a glance</h2>
+          <dl>
+            <div class="fact">
+              <dt>Studying</dt>
+              <dd>B.Tech in Computer Science and Information Technology</dd>
+            </div>
+            <div class="fact">
+              <dt>University</dt>
+              <dd>REVA University, 3rd semester</dd>
+            </div>
+            <div class="fact">
+              <dt>Interested in</dt>
+              <dd>Data Analytics, Business Analytics, and Consulting</dd>
+            </div>
+            <div class="fact">
+              <dt>Currently learning</dt>
+              <dd>Programming, problem-solving, databases, and practical projects</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="block" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>About me</h2>
+        </div>
+        <div class="about-grid">
+          <div>
+            <p>My name is Arun Kumar M, and I'm a 3rd-semester B.Tech student in Computer Science and Information Technology at REVA University. I'm building my technical foundation through programming, problem-solving, databases, and practical projects.</p>
+            <p>I'm interested in Data Analytics, Business Analytics, and Consulting. Alongside technical skills, I'm working on improving how I break down problems, analyse information, and communicate solutions clearly.</p>
+            <p>I focus on understanding the logic behind programs rather than simply memorising code. That approach has made me more comfortable with debugging and solving problems independently.</p>
+          </div>
+          <div class="learning">
+            <h3>My learning journey</h3>
+            <p>Topics I've been working through in my coursework:</p>
+            <ul class="chips">
+              <li class="chip">C programming</li>
+              <li class="chip">Functions</li>
+              <li class="chip">Recursion</li>
+              <li class="chip">Arrays</li>
+              <li class="chip">Pointers</li>
+              <li class="chip">Problem-solving</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="block" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>Practice projects where I apply what I'm learning. Each one is on GitHub.</p>
+        </div>
+
+        <div class="projects">
+          <article class="project">
+            <div class="project-top">
+              <svg class="repo-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+              <span class="tag">C</span>
+            </div>
+            <h3>Student Grade Calculator</h3>
+            <p>A program written in C that works with student marks to calculate grades. It gave me practice applying programming fundamentals to a practical problem.</p>
+            <a class="project-link" href="https://github.com/arun2307-pixel/student-grade-calculator-c" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <article class="project">
+            <div class="project-top">
+              <svg class="repo-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+              <span class="tag">C</span>
+            </div>
+            <h3>Line Editor</h3>
+            <p>A Line Editor project in C that gave me more practice with programming logic and with managing and sharing code through GitHub.</p>
+            <a class="project-link" href="https://github.com/arun2307-pixel/line-editor" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <article class="project">
+            <div class="project-top">
+              <svg class="repo-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+              <span class="tag violet">Problem-solving</span>
+            </div>
+            <h3>LeetCode Solutions</h3>
+            <p>A repository where I document my LeetCode practice. It keeps a record of the problems I solve as I improve my programming and logical reasoning.</p>
+            <a class="project-link" href="https://github.com/arun2307-pixel/leetcode-solutions" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        </div>
+
+        <p class="more">See everything else on my <a href="https://github.com/arun2307-pixel" target="_blank" rel="noopener noreferrer">GitHub profile</a>.</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="block" id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p>My current skills and the areas I'm learning.</p>
+        </div>
+
+        <div class="skill-groups">
+          <div class="skill-group">
+            <h3>Programming and tools</h3>
+            <ul class="chips">
+              <li class="chip">C Programming</li>
+              <li class="chip">Python</li>
+              <li class="chip">SQL</li>
+              <li class="chip">Git &amp; GitHub</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Data and analytics</h3>
+            <ul class="chips">
+              <li class="chip">Data Analytics</li>
+              <li class="chip">Excel</li>
+              <li class="chip">Power BI</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Ways of working</h3>
+            <ul class="chips">
+              <li class="chip">Problem Solving</li>
+              <li class="chip">Critical Thinking</li>
+              <li class="chip">Communication</li>
+              <li class="chip">Teamwork</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="skill-note">I'm continuing to develop these skills through coursework, projects, coding practice, and hands-on learning.</p>
+      </div>
+    </section>
+
+    <!-- Career goal -->
+    <section class="block" id="goal">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Career goal</h2>
+        </div>
+
+        <div class="goal-grid">
+          <p class="goal-quote">To build a strong foundation in Business Analytics and Data Analytics while keeping my technical skills relevant.</p>
+
+          <ul class="goal-list">
+            <li><strong>Gain practical experience</strong>Through projects and internships.</li>
+            <li><strong>Keep growing technically</strong>Continue developing my programming, SQL, and analytics skills.</li>
+            <li><strong>Work at the intersection</strong>Eventually work in roles that combine technology, data, business problem-solving, and consulting.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="block" id="contact">
+      <div class="wrap">
+        <div class="contact-card">
+          <div>
+            <h2>Get in touch</h2>
+            <p>I'm still learning, experimenting, and debugging. You can see my work and reach out through my GitHub profile.</p>
+          </div>
+          <a class="btn btn-primary" href="https://github.com/arun2307-pixel" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            github.com/arun2307-pixel
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>&copy; 2026 Arun Kumar M</span>
+      <span>B.Tech CSIT, REVA University</span>
+    </div>
+  </footer>
+</body>
+</html>
